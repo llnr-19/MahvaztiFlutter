@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'transaction_list_screen.dart';
+//import 'transaction_list_screen.dart';
 
 class HomeBody extends StatefulWidget {
   final Map<String, String> cardDetails;
@@ -50,7 +50,6 @@ class _HomeBodyState extends State<HomeBody> {
                   },
                 ),
               ),
-              const defult_bottom(),
               const Balance(),
               Show_TRANS(),
             ],
@@ -100,8 +99,15 @@ class CreditCard extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 12),
         width: 300,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 121, 224, 231),
           borderRadius: BorderRadius.circular(16.0),
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF90C9FF),
+              Color(0xFF5286FF),
+            ],
+          ),
           boxShadow: [
             if (isSelected) // Add shadow only to the selected card
               BoxShadow(
@@ -119,17 +125,26 @@ class CreditCard extends StatelessWidget {
             children: [
               Text(
                 'Card Number: ${cardDetails['Card Number']}',
-                style: const TextStyle(fontSize: 16.0),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
               ),
               const SizedBox(height: 8.0),
               Text(
                 'Cardholder Name: ${cardDetails['Cardholder Name']}',
-                style: const TextStyle(fontSize: 16.0),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
               ),
               const SizedBox(height: 8.0),
               Text(
                 'Card Type: ${cardDetails['Card Type']}',
-                style: const TextStyle(fontSize: 16.0),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
               ),
             ],
           ),
@@ -152,7 +167,7 @@ class _mm_CardState extends State<Show_TRANS> {
       // margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: const Color.fromARGB(255, 204, 225, 233),
+        color: const Color.fromARGB(255, 201, 217, 243),
       ),
       child: Center(
         child: Column(
@@ -220,16 +235,27 @@ class _mm_CardState extends State<Show_TRANS> {
               ],
             ),
             const SizedBox(height: 15),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TransactionListScreen(),
-                  ),
-                );
-              },
-              child: const Text('View Transactions'),
+            const Text(
+              'Recent transaction',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            const SizedBox(height: 15),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                  return const TransactionCard(
+                    icon: Icons.water_drop,
+                    title: 'Water',
+                    amount: '+150.00',
+                    date: '05 Nov 2023',
+                    color: Colors.blue,
+                  );
+                },
+              ),
             ),
           ],
         ),
@@ -253,7 +279,7 @@ class _BalanceState extends State<Balance> {
       margin: const EdgeInsets.symmetric(horizontal: 13, vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: const Color.fromARGB(255, 204, 225, 233),
+        color: const Color.fromARGB(255, 201, 217, 243),
       ),
       child: const Center(
         child: Column(
@@ -267,6 +293,75 @@ class _BalanceState extends State<Balance> {
               child: Text(
                 "11025525444 EGP",
                 style: TextStyle(fontWeight: FontWeight.w800, fontSize: 22),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class TransactionCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String amount;
+  final String date;
+  final Color color;
+
+  const TransactionCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.amount,
+    required this.date,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      elevation: 2,
+      child: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            CircleAvatar(
+              backgroundColor: color,
+              child: Icon(
+                icon,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(width: 16.0),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  const SizedBox(height: 4.0),
+                  Text(
+                    date,
+                    style: const TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              amount,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+                fontSize: 16.0,
               ),
             ),
           ],

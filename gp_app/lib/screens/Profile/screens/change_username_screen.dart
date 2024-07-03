@@ -25,21 +25,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: widget.controller, // Use the controller here
       decoration: InputDecoration(
         labelText: widget.labelText,
-        labelStyle: TextStyle(fontWeight: FontWeight.bold),
+        labelStyle: const TextStyle(fontWeight: FontWeight.bold),
         // Make label text bold
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintText: '\n${widget.hintText}',
-        prefixIcon: Icon(Icons.person),
+        prefixIcon: const Icon(Icons.person),
         // Add a username icon
         suffixIcon: IconButton(
-          icon: Icon(Icons.create),
+          icon: const Icon(Icons.create),
           onPressed: () {
             widget.controller?.clear(); // Use the controller here
           },
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10), // Add a border radius
-          borderSide: BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color: Colors.grey),
         ),
         filled: true,
         // Add a filled background
@@ -131,7 +131,7 @@ class _ChangeUsernameScreenState extends State<ChangeUsernameScreen> {
                       keyboardType: TextInputType.text,
                       controller: _firstnameController,
                     ),
-                    SizedBox(height: 20), // Add this line to add space between text fields
+                    const SizedBox(height: 20), // Add this line to add space between text fields
                     CustomTextField(
                       hintText: 'Enter new lastname',
                       labelText: 'Lastname:',
@@ -188,7 +188,7 @@ class _ChangeUsernameScreenState extends State<ChangeUsernameScreen> {
                             }
                           },
                           text: _isLoading ? 'Loading...' : 'Save',
-                          color: Colors.red,
+                          color: Colors.blue,
                         ),
                         CustomButton(
                           onTap: () {

@@ -55,8 +55,15 @@ class _CreditCardState extends State<CreditCardd> {
         margin: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 12),
         width: 300,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 121, 224, 231),
           borderRadius: BorderRadius.circular(16.0),
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF90C9FF),
+              Color(0xFF5286FF),
+            ],
+          ),
           boxShadow: [
             if (_selectedIndex ==
                 widget.cards.indexOf(cardData)) // Shadow only for selected card

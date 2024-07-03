@@ -84,27 +84,54 @@ class _CreditCardState extends State<CreditCard> {
         margin: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 12),
         width: 300,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 121, 224, 231),
           borderRadius: BorderRadius.circular(16.0),
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF90C9FF),
+              Color(0xFF5286FF),
+            ],
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 45),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text(
+                'Credit card',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+              const SizedBox(height: 10.0),
               Text(
                 'Card Number: ${widget.cardDetails['card_number']}',
-                style: TextStyle(fontSize: 16.0),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
                 'Cardholder Name: ${widget.cardDetails['card_holder_name']}',
-                style: TextStyle(fontSize: 16.0),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
                 'Card Type: ${widget.cardDetails['card_type']}',
-                style: TextStyle(fontSize: 16.0),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ],
           ),
@@ -113,7 +140,6 @@ class _CreditCardState extends State<CreditCard> {
     );
   }
 }
-
 
 // class My_cards extends StatelessWidget {
 //   @override

@@ -23,7 +23,7 @@ class CustomSwitch extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
               MediaQuery.of(context).size.width * 0.05),
-          color: isSwitched ? Colors.red : Color.fromARGB(255, 66, 66, 66),
+          color: isSwitched ? Colors.blue : Color.fromARGB(255, 66, 66, 66),
         ),
         child: AnimatedAlign(
           duration: const Duration(milliseconds: 150),

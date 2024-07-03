@@ -127,7 +127,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
                               ? CircularProgressIndicator()
                               : Text('Save'),
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.red),
+                            backgroundColor: MaterialStateProperty.all(Colors.blue),
                           ),
                         ),
                         ElevatedButton(

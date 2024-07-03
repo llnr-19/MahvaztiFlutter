@@ -6,6 +6,8 @@ import 'notifications_screen.dart';
 import 'help_center_screen.dart';
 
 class Profile extends StatelessWidget {
+  const Profile({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class Profile extends StatelessWidget {
             Center(
               child: Stack(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50,
                     //   backgroundImage: AssetImage(
                     //       'assets/images/profile_pic.png'), // Replace with your image URL
@@ -31,7 +33,7 @@ class Profile extends StatelessWidget {
                     bottom: 0,
                     right: 0,
                     child: IconButton(
-                      icon: Icon(Icons.camera_alt),
+                      icon: const Icon(Icons.camera_alt),
                       onPressed: () {
                         // Handle camera button press
                       },
@@ -46,14 +48,15 @@ class Profile extends StatelessWidget {
                 children: [
                   profile_tile(
                       context: context,
-                      icon: Icons.person_outline,
                       title: 'My Account',
+                      icon: Icons.person_outline,
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MyAccountScreen()));
-                      }),
+                      }// Add this line
+                      ),
                   profile_tile(
                       context: context,
                       icon: Icons.notifications_outlined,
@@ -124,7 +127,7 @@ class Profile extends StatelessWidget {
                                     Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (e) => SignInScreen(),
+                                          builder: (e) => const SignInScreen(),
                                         ),
                                         (Route<dynamic> route) => false);
                                     // Handle log out action

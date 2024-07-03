@@ -198,7 +198,7 @@ class _ChangePhoneScreenStateState extends State<ChangePhoneScreen> {
                             }
                           },
                           text: _isLoading ? 'Loading...' : 'Save',
-                          color: Colors.red,
+                          color: Colors.blue,
                         ),
                         CustomButton(
                           onTap: () {

@@ -205,13 +205,14 @@ class _SignInScreenState extends State<SignInScreen> {
                               };
                               String jsonDetails = jsonEncode(userDetails);
                               // print(jsonDetails);
-                            }
-                            Navigator.pushAndRemoveUntil(
+                              Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (e) => Navbar(),
+                                  builder: (e) =>  Navbar(),
                                 ),
-                                (Route<dynamic> route) => false);
+                                    (Route<dynamic> route) => false,
+                              );
+                            }
                           },
                           child: const Text('Sign in'),
                         ),

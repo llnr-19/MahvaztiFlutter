@@ -90,7 +90,15 @@ class CategoryCard extends StatelessWidget {
                 height: 120,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
-                  color: Colors.blue,
+                  gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF90C9FF),
+                      Color(0xFF5286FF),
+                    ],
+                  ),
+                 // color: Colors.blue,
                 ),
               ),
             ),

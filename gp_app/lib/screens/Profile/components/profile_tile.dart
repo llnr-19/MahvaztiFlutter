@@ -4,7 +4,7 @@ class profile_tile extends StatelessWidget {
   const profile_tile({
     super.key,
     required this.context,
-    required this.icon,
+    required this.icon, // Add this line
     required this.title,
     required this.onTap,
   });
@@ -23,9 +23,9 @@ class profile_tile extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: ListTile(
-        leading: Icon(icon, color: Colors.red),
+        leading: Icon(icon, color: Colors.blue),
         title: Text(title),
-        trailing: Icon(Icons.arrow_forward_ios),
+        trailing: const Icon(Icons.arrow_forward_ios),
         onTap: onTap,
       ),
     );
