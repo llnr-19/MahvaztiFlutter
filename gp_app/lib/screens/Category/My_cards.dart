@@ -99,19 +99,11 @@ class _CreditCardState extends State<CreditCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Credit card',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
-              const SizedBox(height: 10.0),
               Text(
                 'Card Number: ${widget.cardDetails['card_number']}',
                 style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  //fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
@@ -119,8 +111,8 @@ class _CreditCardState extends State<CreditCard> {
               Text(
                 'Cardholder Name: ${widget.cardDetails['card_holder_name']}',
                 style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  //fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
@@ -128,8 +120,8 @@ class _CreditCardState extends State<CreditCard> {
               Text(
                 'Card Type: ${widget.cardDetails['card_type']}',
                 style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  //fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),

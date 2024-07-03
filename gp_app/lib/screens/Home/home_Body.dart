@@ -126,7 +126,7 @@ class CreditCard extends StatelessWidget {
               Text(
                 'Card Number: ${cardDetails['Card Number']}',
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 16,
                 ),
               ),
@@ -134,7 +134,7 @@ class CreditCard extends StatelessWidget {
               Text(
                 'Cardholder Name: ${cardDetails['Cardholder Name']}',
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 16,
                 ),
               ),
@@ -142,7 +142,7 @@ class CreditCard extends StatelessWidget {
               Text(
                 'Card Type: ${cardDetails['Card Type']}',
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 16,
                 ),
               ),
@@ -167,7 +167,7 @@ class _mm_CardState extends State<Show_TRANS> {
       // margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: const Color.fromARGB(255, 201, 217, 243),
+        color: Colors.blue[100],
       ),
       child: Center(
         child: Column(
@@ -189,7 +189,7 @@ class _mm_CardState extends State<Show_TRANS> {
                   height: 45,
                   width: 60,
                   decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 156, 198, 233),
+                    color: Colors.blue,
                     shape: BoxShape.circle,
                   ),
                   child: const Center(
@@ -213,7 +213,7 @@ class _mm_CardState extends State<Show_TRANS> {
                   height: 45,
                   width: 60,
                   decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 41, 100, 226),
+                    color: Colors.blue,
                     shape: BoxShape.circle,
                   ),
                   child: const Center(
@@ -279,7 +279,7 @@ class _BalanceState extends State<Balance> {
       margin: const EdgeInsets.symmetric(horizontal: 13, vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: const Color.fromARGB(255, 201, 217, 243),
+        color: Colors.blue[100],
       ),
       child: const Center(
         child: Column(
@@ -360,7 +360,7 @@ class TransactionCard extends StatelessWidget {
               amount,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.blue,
+                color: Colors.black,
                 fontSize: 16.0,
               ),
             ),

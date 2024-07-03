@@ -73,15 +73,14 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: const Text('Add Card Details', style: TextStyle(color: Colors.white)),
+        title: const Text('Add Card Details',
+            style: TextStyle(color: Colors.white)),
       ),
-      body:
-      Padding(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
-
             children: [
               Container(
                 height: 180,
@@ -131,7 +130,7 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                       const SizedBox(height: 8.0),
                       // Credit Card Holder Name
                       const Text(
-                        'Miller',
+                        'Card Holder Name',
                         style: TextStyle(
                           fontSize: 14.0,
                         ),
@@ -245,7 +244,8 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                         return null;
                       },
                     ),
-                    if (_selectedCategory == 'financial') const SizedBox(height: 16.0),
+                    if (_selectedCategory == 'financial')
+                      const SizedBox(height: 16.0),
                     if (_selectedCategory == 'financial')
                       TextFormField(
                         controller: _expiryDateController,
@@ -262,7 +262,8 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                           return null;
                         },
                       ),
-                    if (_selectedCategory == 'financial') const SizedBox(height: 16.0),
+                    if (_selectedCategory == 'financial')
+                      const SizedBox(height: 16.0),
                     if (_selectedCategory == 'financial')
                       TextFormField(
                         controller: _cvvController,
