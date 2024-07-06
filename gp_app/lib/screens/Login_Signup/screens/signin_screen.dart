@@ -8,7 +8,7 @@ import 'package:gp_app/screens/Login_Signup/screens/signup_screen.dart';
 import 'package:gp_app/screens/Login_Signup/themes/theme.dart';
 import 'package:gp_app/screens/Login_Signup/widgets/custom_scaffold.dart';
 import 'package:gp_app/screens/mm/Navigation_Bar.dart';
-import 'package:icons_plus/icons_plus.dart';
+import 'package:http/http.dart' as http;
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -22,6 +22,65 @@ class _SignInScreenState extends State<SignInScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool rememberPassword = true;
+  // String hashPassword(String password) {
+  //   var bytes = utf8.encode(password);
+  //   var digest = sha256.convert(bytes);
+  //   return digest.toString();
+  // }
+
+  Future<void> _signIn() async {
+    if (_formSignInKey.currentState!.validate()) {
+      String email = _emailController.text;
+      String password = _passwordController.text;
+
+      final Map<String, String> userDetails = {
+        'username': email,
+        'password': password,
+      };
+      print(userDetails);
+
+
+      final Uri url = Uri.parse('https://mahvazti.up.railway.app/api/auth/authenticate'); // Replace with your backend URL
+
+      try {
+        print(jsonEncode(userDetails));
+        final response = await http.post(
+          url,
+          headers: {
+            'Content-Type': 'application/json',
+
+          },
+          body: jsonEncode(userDetails),
+        );
+
+        if (response.statusCode == 200) {
+          final responseData = jsonDecode(response.body);
+          String token = responseData['token'];
+          print(token);
+          // Successful signin, navigate to the next screen
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (e) => Navbar(),
+            ),
+                (Route<dynamic> route) => false,
+          );
+        } else {
+          // Signin failed, show an error message
+          final responseData = jsonDecode(response.body);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Signin failed: ${responseData['message']} (Status code: ${response.statusCode})')),
+          );
+        }
+      } catch (e) {
+        // Network error, show an error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Network error: $e')),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -168,45 +227,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {
-                            if (_formSignInKey.currentState!.validate()) {
-                              String hashPassword(String password) {
-                                var bytes = utf8.encode(password);
-                                var digest = sha256.convert(bytes);
-                                return digest.toString();
-                              }
-
-                              String password = _passwordController.text;
-                              String hashedPassword = hashPassword(password);
-                              /*Future<void> _sendPasswordToServer(String hashedPassword) async {
-                                // Replace with your actual server interaction code
-                                // Ensure secure communication (HTTPS)
-                                final response = await http.post(
-                                  Uri.parse('https://your-server.com/api/register'),
-                                  body: {'hashedPassword': hashedPassword},
-                                );
-
-                                if (response.statusCode == 200) {
-                                  // Handle successful registration/login
-                                } else {
-                                  // Handle error
-                                }
-                              }*/
-                              final Map<String, dynamic> userDetails = {
-                                'email': _emailController.text,
-                                'hashed_password': hashedPassword,
-                              };
-                              String jsonDetails = jsonEncode(userDetails);
-                              // print(jsonDetails);
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (e) =>  Navbar(),
-                                ),
-                                    (Route<dynamic> route) => false,
-                              );
-                            }
-                          },
+                           onPressed: _signIn,
                           child: const Text('Sign in'),
                         ),
                       ),
