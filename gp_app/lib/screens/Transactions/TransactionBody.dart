@@ -100,7 +100,7 @@ class _TransactionxState extends State<Transactionx> {
             Center(
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   const Text(
@@ -111,7 +111,7 @@ class _TransactionxState extends State<Transactionx> {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -137,7 +137,7 @@ class _TransactionxState extends State<Transactionx> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Form(
@@ -148,9 +148,24 @@ class _TransactionxState extends State<Transactionx> {
                           controller: amount,
                           keyboardType: const TextInputType.numberWithOptions(
                               decimal: true),
-                          decoration: const InputDecoration(
-                            labelText: 'Amount',
-                            border: OutlineInputBorder(),
+                          decoration: InputDecoration(
+                            label: const Text('Amount'),
+                            hintText: 'Enter Amount',
+                            hintStyle: const TextStyle(
+                              color: Colors.black26,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                color: Colors.black12, // Default border color
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                color: Colors.black12, // Default border color
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -184,13 +199,13 @@ class _TransactionxState extends State<Transactionx> {
                           },
                           child: const Text(
                             "Pay",
-                            style: TextStyle(fontSize: 25.0),
+                            style: TextStyle(fontSize: 15.0),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(_nfcMessage,

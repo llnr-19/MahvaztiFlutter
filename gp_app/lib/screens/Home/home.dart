@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   final Map<String, Map<String, String>> cardDetails = {
     'Financial Card': {
       'Card Number': '1234 5678 9012 3456',
-      'Cardholder Name': 'John Doe',
+      'Cardholder Name': 'Ameen Omar',
       'Card Type': 'Financial Card',
     },
     'Access Card': {

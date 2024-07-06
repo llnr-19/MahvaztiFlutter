@@ -51,7 +51,7 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
               ),
               const Balance(),
-              Show_TRANS(),
+              const Show_TRANS(),
             ],
           ),
         ),
@@ -85,11 +85,11 @@ class CreditCard extends StatelessWidget {
   final VoidCallback onSelect;
 
   const CreditCard({
-    Key? key,
+    super.key,
     required this.cardDetails,
     required this.isSelected,
     required this.onSelect,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -155,6 +155,8 @@ class CreditCard extends StatelessWidget {
 }
 
 class Show_TRANS extends StatefulWidget {
+  const Show_TRANS({super.key});
+
   @override
   State<Show_TRANS> createState() => _mm_CardState();
 }
@@ -163,7 +165,7 @@ class _mm_CardState extends State<Show_TRANS> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 600,
       // margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -202,7 +204,7 @@ class _mm_CardState extends State<Show_TRANS> {
                   children: [
                     Text("Income"),
                     Text(
-                      "2000000 EGP",
+                      "7275 EGP",
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
                     ),
@@ -226,7 +228,7 @@ class _mm_CardState extends State<Show_TRANS> {
                   children: [
                     Text("Outcome"),
                     Text(
-                      "2000000 EGP",
+                      "2275 EGP",
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
                     ),
@@ -245,13 +247,13 @@ class _mm_CardState extends State<Show_TRANS> {
             const SizedBox(height: 15),
             Expanded(
               child: ListView.builder(
-                itemCount: 6,
+                itemCount: 1,
                 itemBuilder: (context, index) {
                   return const TransactionCard(
-                    icon: Icons.water_drop,
-                    title: 'Water',
-                    amount: '+150.00',
-                    date: '05 Nov 2023',
+                    icon: Icons.person,
+                    title: 'Nooreldin Ayman',
+                    amount: '-2275.00',
+                    date: '04 JULY 2024',
                     color: Colors.blue,
                   );
                 },
@@ -291,7 +293,7 @@ class _BalanceState extends State<Balance> {
             ),
             Center(
               child: Text(
-                "11025525444 EGP",
+                "5000 EGP",
                 style: TextStyle(fontWeight: FontWeight.w800, fontSize: 22),
               ),
             ),

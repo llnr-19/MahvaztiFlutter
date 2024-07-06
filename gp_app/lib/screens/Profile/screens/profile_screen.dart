@@ -21,23 +21,13 @@ class Profile extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Center(
+            const Center(
               child: Stack(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 50,
-                    //   backgroundImage: AssetImage(
-                    //       'assets/images/profile_pic.png'), // Replace with your image URL
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: IconButton(
-                      icon: const Icon(Icons.camera_alt),
-                      onPressed: () {
-                        // Handle camera button press
-                      },
-                    ),
+                      backgroundImage: AssetImage(
+                          'assets/images/img1.jpg'), // Replace with your image URL
                   ),
                 ],
               ),
@@ -57,6 +47,7 @@ class Profile extends StatelessWidget {
                                 builder: (context) => MyAccountScreen()));
                       }// Add this line
                       ),
+                  const SizedBox(height: 15.0),
                   profile_tile(
                       context: context,
                       icon: Icons.notifications_outlined,
@@ -67,13 +58,7 @@ class Profile extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => NotificationsScreen()));
                       }),
-                  profile_tile(
-                      context: context,
-                      icon: Icons.settings_outlined,
-                      title: 'Settings',
-                      onTap: () {
-                        // Navigate to Settings
-                      }),
+                  const SizedBox(height: 15.0),
                   profile_tile(
                       context: context,
                       icon: Icons.help_outline,
@@ -84,6 +69,7 @@ class Profile extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => HelpCenterScreen()));
                       }),
+                  const SizedBox(height: 15.0),
                   profile_tile(
                       context: context,
                       icon: Icons.logout,

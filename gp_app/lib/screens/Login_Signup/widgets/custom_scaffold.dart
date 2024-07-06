@@ -14,12 +14,12 @@ class CustomScaffold extends StatelessWidget {
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          // Image.asset(
-          //   'E:/Graduation Project/front_end/gp_app/assets/images/img0.jpg',
-          //   fit: BoxFit.cover,
-          //   width: double.infinity,
-          //   height: double.infinity,
-          // ),
+          Image.asset(
+            'assets/images/img0.jpg',
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
           SafeArea(
             child: child!,
           ),
